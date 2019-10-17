@@ -145,6 +145,7 @@ EOM
    def configurePatches(shouldEnable = true)
       configurePatchFile("#{@patches}/CMakeLists.txt.diff", shouldEnable)
       configurePatchFile("#{@patches}/CoreFoundation/Base.subproj/SwiftRuntime/CoreFoundation.h.diff", shouldEnable)
+      configurePatchFile("#{@patches}/CoreFoundation/RunLoop.subproj/CFRunLoop.c.diff", shouldEnable)
    end
 
    def libs()
