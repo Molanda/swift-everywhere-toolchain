@@ -85,7 +85,7 @@ class Revision
    def self.clang
       # swift-5.1-branch @ 1.0.39: cb082b2ada7a959cfa27a48b1c3777a8a496114c
       # swift-5.1-branch @ 1.0.26: 2a6d22b018a5348a03000b8abfa0bde207ffd08d
-      return "cb082b2ada7a959cfa27a48b1c3777a8a496114c"
+      return "a85b02e8c4987fb540648c351a82f19f77f44b6d"
    end
 
    def self.crt
