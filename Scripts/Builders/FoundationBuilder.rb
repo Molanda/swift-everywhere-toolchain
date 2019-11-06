@@ -145,13 +145,14 @@ EOM
    def configurePatches(shouldEnable = true)
       configurePatchFile("#{@patches}/CMakeLists.txt.diff", shouldEnable)
       configurePatchFile("#{@patches}/CoreFoundation/Base.subproj/SwiftRuntime/CoreFoundation.h.diff", shouldEnable)
+      configurePatchFile("#{@patches}/CoreFoundation/PlugIn.subproj/CFBundle_Main.c.diff", shouldEnable)
       configurePatchFile("#{@patches}/CoreFoundation/PlugIn.subproj/CFBundle_Executable.c.diff", shouldEnable)
       configurePatchFile("#{@patches}/CoreFoundation/RunLoop.subproj/CFRunLoop.c.diff", shouldEnable)
-      configurePatchFile("#{@patches}/Foundation/Host.swift.diff", shouldEnable)
       configurePatchFile("#{@patches}/CoreFoundation/URL.subproj/CFURLSessionInterface.c.diff", shouldEnable)
       configurePatchFile("#{@patches}/CoreFoundation/URL.subproj/CFURLSessionInterface.h.diff", shouldEnable)
       configurePatchFile("#{@patches}/Foundation/URLSession/libcurl/EasyHandle.swift.diff", shouldEnable)
       configurePatchFile("#{@patches}/Foundation/URLSession/libcurl/MultiHandle.swift.diff", shouldEnable)
+      configurePatchFile("#{@patches}/Foundation/Host.swift.diff", shouldEnable)
    end
 
    def libs()

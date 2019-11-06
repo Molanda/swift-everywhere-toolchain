@@ -1,0 +1,46 @@
+diff --git a/CoreFoundation/PlugIn.subproj/CFBundle_Main.c b/CoreFoundation/PlugIn.subproj/CFBundle_Main.c
+index 5073940d..9b526d4c 100644
+--- a/CoreFoundation/PlugIn.subproj/CFBundle_Main.c
++++ b/CoreFoundation/PlugIn.subproj/CFBundle_Main.c
+@@ -11,8 +11,6 @@
+ #include <CoreFoundation/CFBundle.h>
+ #include "CFBundle_Internal.h"
+ 
+-
+-
+ #if defined(BINARY_SUPPORT_DLFCN)
+ #include <dlfcn.h>
+ #ifndef RTLD_FIRST
+@@ -161,8 +159,32 @@ CF_EXPORT CFURLRef _CFBundleCopyMainBundleExecutableURL(Boolean *looksLikeBundle
+     return executableURL;
+ }
+ 
++#if TARGET_OS_ANDROID
++struct TestConstStr {
++    struct {
++        uintptr_t _cfisa;
++        uintptr_t _swift_rc;
++        uint64_t _cfinfoa;
++    } _base;
++    uint8_t *_ptr;
++#if TARGET_RT_64_BIT && defined(__BIG_ENDIAN__)
++    uint64_t _length;
++#else // 32-bit:
++    uint32_t _length;
++#endif // TARGET_RT_64_BIT && defined(__BIG_ENDIAN__)
++};
++#endif
+ 
+ CF_EXPORT CFBundleRef CFBundleGetMainBundle(void) {
++#if TARGET_OS_ANDROID
++#if __BIG_ENDIAN__
++    static struct TestConstStr testStr = {{(uintptr_t)&_CF_CONSTANT_STRING_SWIFT_CLASS, _CF_CONSTANT_OBJECT_STRONG_RC, 0x00000000C8070000}, (uint8_t *)("12345678"), 8};
++#else
++    static struct TestConstStr testStr = {{(uintptr_t)&_CF_CONSTANT_STRING_SWIFT_CLASS, _CF_CONSTANT_OBJECT_STRONG_RC, 0x07C8}, (uint8_t *)("12345678"), 8};
++#endif
++    CFLog1(kCFLogLevelError, (CFStringRef)&testStr);
++#endif
++
+     CFBundleRef mainBundle;
+     _CFMutexLock(&_mainBundleLock);
+     mainBundle = _CFBundleGetMainBundleAlreadyLocked();
