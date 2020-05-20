@@ -240,6 +240,7 @@ class SwiftBuilder < Builder
    def configurePatches(shouldEnable = true)
       configurePatchFile("#{@patches}/stdlib/public/SwiftShims/Visibility.h.diff", shouldEnable)
       configurePatchFile("#{@patches}/stdlib/CMakeLists.txt.diff", shouldEnable)
+      configurePatchFile("#{@patches}/lib/Basic/LangOptions.cpp.diff", shouldEnable)
 
       # Fixes wrong install locations and unneded logic related to `lipo` and fat binaries.
       configurePatchFile("#{@patches}/cmake/modules/AddSwift.cmake.diff", shouldEnable)
