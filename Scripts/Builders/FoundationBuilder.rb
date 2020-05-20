@@ -149,6 +149,7 @@ EOM
    def configurePatches(shouldEnable = true)
       configurePatchFile("#{@patches}/CMakeLists.txt.diff", shouldEnable)
       configurePatchFile("#{@patches}/Foundation/CMakeLists.txt.diff", shouldEnable)
+      configurePatchFile("#{@patches}/Foundation/Host.swift.diff", shouldEnable)
       configurePatchFile("#{@patches}/CoreFoundation/Base.subproj/SwiftRuntime/CoreFoundation.h.diff", shouldEnable)
    end
 
