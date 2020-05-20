@@ -32,7 +32,7 @@ class NDK
    end
 
    def api
-      return "24"
+      return "23"
    end
 
    def gcc

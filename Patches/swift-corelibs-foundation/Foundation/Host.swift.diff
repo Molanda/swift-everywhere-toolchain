@@ -1,0 +1,13 @@
+diff --git a/Foundation/Host.swift b/Foundation/Host.swift
+index 29a1297f..4678e432 100644
+--- a/Foundation/Host.swift
++++ b/Foundation/Host.swift
+@@ -140,6 +140,8 @@ open class Host: NSObject {
+           pAdapter = pAdapter!.pointee.Next
+         }
+         _resolved = true
++#elseif os(Android)
++        NSUnimplemented()
+ #else
+         var ifaddr: UnsafeMutablePointer<ifaddrs>? = nil
+         if getifaddrs(&ifaddr) != 0 {
