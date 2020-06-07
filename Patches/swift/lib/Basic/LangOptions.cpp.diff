@@ -1,0 +1,12 @@
+diff --git a/lib/Basic/LangOptions.cpp b/lib/Basic/LangOptions.cpp
+index 95c937cbd2f..93cb8714560 100644
+--- a/lib/Basic/LangOptions.cpp
++++ b/lib/Basic/LangOptions.cpp
+@@ -65,6 +65,7 @@ static const StringRef SupportedConditionalCompilationRuntimes[] = {
+ 
+ static const StringRef SupportedConditionalCompilationTargetEnvironments[] = {
+   "simulator",
++  "macCatalyst",
+ };
+ 
+ static const PlatformConditionKind AllPublicPlatformConditionKinds[] = {
