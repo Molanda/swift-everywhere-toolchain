@@ -238,6 +238,7 @@ class SwiftBuilder < Builder
    end
 
    def configurePatches(shouldEnable = true)
+      configurePatchFile("#{@patches}/stdlib/public/core/VarArgs.swift.diff", shouldEnable)
       configurePatchFile("#{@patches}/stdlib/public/SwiftShims/Visibility.h.diff", shouldEnable)
       configurePatchFile("#{@patches}/stdlib/CMakeLists.txt.diff", shouldEnable)
       configurePatchFile("#{@patches}/lib/Basic/LangOptions.cpp.diff", shouldEnable)
