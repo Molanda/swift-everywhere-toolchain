@@ -128,7 +128,7 @@ esac
 
 SaNdkToolChain="${SaNdkPath}/toolchains/llvm/prebuilt/darwin-x86_64"
 SaNdkGccVersion="4.9"
-SaNdkApiVersion="24"
+SaNdkApiVersion="23"
 SaSwiftCPath="$SaToolchainPath/usr/bin/swiftc"
 SaCmdArgs="-swift-version 5 -tools-directory $SaNdkToolChain"
 
